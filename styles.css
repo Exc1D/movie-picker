@@ -198,8 +198,8 @@ h1 {
 
 .movie-card p:last-child {
   display: inline-block;
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  color: white;
+  background: #eec020;
+  color: black;
   padding: 8px 20px;
   border-radius: 20px;
   font-weight: 600;
