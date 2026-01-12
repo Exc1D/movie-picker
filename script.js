@@ -9,9 +9,7 @@ const movieModalCloseBtn = document.getElementById("movie-modal-close-btn");
 
 // Event listeners
 genreRadios.addEventListener("change", highlightCheckedOption);
-// 2. Add 'click' event to movieModalCloseBtn to close the modal
 movieModalCloseBtn.addEventListener("click", closeModal);
-// 3. Add 'click' event to getMovieBtn to render a movie
 getMovieBtn.addEventListener("click", renderMovie);
 
 function highlightCheckedOption(e) {
@@ -30,8 +28,13 @@ function closeModal() {
 function renderMovie() {
   // Get a single movie object
   const movie = getSingleMovieObject();
+
+  if (!movie) {
+    alert("No movies found. Try a different genre or uncheck 'Classics Only'.");
+    return;
+  }
+
   movieModalInner.innerHTML = `
-  <button id="movie-modal-close-btn">×</button>
   <div>
     <h3>${movie.title}</h3>
     <p>${movie.year}</p>
@@ -49,6 +52,11 @@ function renderMovie() {
 
 function getSingleMovieObject() {
   const movieMatches = getMatchingMoviesArray();
+
+  if (!movieMatches.length) {
+    return null;
+  }
+
   // If array has only 1 movie, return it
   if (movieMatches.length === 1) {
     return movieMatches[0];
@@ -65,7 +73,7 @@ function getMatchingMoviesArray() {
       "input[type='radio']:checked"
     ).value;
     // Check if 'classics only' checkbox is checked
-    const isClassicsOnly = classicsOnlyOption.ariaChecked;
+    const isClassicsOnly = classicsOnlyOption.checked;
 
     return moviesData.filter((movie) => {
       if (isClassicsOnly) {
@@ -74,7 +82,8 @@ function getMatchingMoviesArray() {
       return movie.genreTags.includes(selectedGenre);
     });
   }
-  prompt("Select a movie genre so we can start chillin.");
+  alert("Select a movie genre so we can chill");
+  return [];
 }
 
 // Function to get unique genres from movies data
@@ -120,41 +129,6 @@ function renderGenreRadios(movies) {
   genreRadios.innerHTML = radioBtns;
 }
 
-// TODO: Call renderGenreRadios with moviesData to initialize the page
-
-/*
-        CHALLENGES:
-        
-        YES! This uses the EXACT SAME LOGIC as the cat/dog projects, just with different data:
-        
-        - Instead of emotions/moods → genres
-        - Instead of isGif/isVideo → isClassic
-        - Instead of cat/dog images → movie posters and info
-        
-        The functions are identical in structure:
-        
-        1. Extract unique values from nested arrays (getGenresArray)
-           - Same as getEmotionsArray/getMoodsArray
-        
-        2. Render radio buttons dynamically (renderGenreRadios)
-           - Same pattern as before
-        
-        3. Highlight selected option (highlightCheckedOption)
-           - Identical logic
-        
-        4. Filter by genre and classic preference (getMatchingMoviesArray)
-           - Same as filtering by emotion/mood and gif/video
-        
-        5. Get random item from array (getSingleMovieObject)
-           - Identical logic
-        
-        6. Display in modal (renderMovie)
-           - Same pattern, just different HTML structure
-        
-        7. Close modal (closeModal)
-           - Identical
-        
-        BONUS: Make the movie card look amazing with all the movie details!
-        */
+// BONUS: Make the movie card look amazing with all the movie details!
 
 renderGenreRadios(moviesData);
