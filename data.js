@@ -1,0 +1,87 @@
+export // DOG DATA
+const dogsData = [
+  {
+    moodTags: ["happy"],
+    isVideo: false,
+    image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400",
+    alt: "A happy golden retriever",
+  },
+  {
+    moodTags: ["happy", "playful"],
+    isVideo: false,
+    image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400",
+    alt: "A playful dog",
+  },
+  {
+    moodTags: ["sleepy"],
+    isVideo: false,
+    image: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=400",
+    alt: "A sleepy puppy",
+  },
+  {
+    moodTags: ["sleepy", "relaxed"],
+    isVideo: false,
+    image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=400",
+    alt: "A relaxed dog",
+  },
+  {
+    moodTags: ["curious"],
+    isVideo: false,
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400",
+    alt: "A curious dog",
+  },
+  {
+    moodTags: ["playful"],
+    isVideo: false,
+    image: "https://images.unsplash.com/photo-1558788353-f76d92427f16?w=400",
+    alt: "A playful puppy",
+  },
+  {
+    moodTags: ["excited", "playful"],
+    isVideo: false,
+    image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400",
+    alt: "An excited dog",
+  },
+  {
+    moodTags: ["calm"],
+    isVideo: false,
+    image: "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?w=400",
+    alt: "A calm dog",
+  },
+  {
+    moodTags: ["happy"],
+    isVideo: true,
+    image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?w=400",
+    alt: "A happy dog video",
+  },
+  {
+    moodTags: ["playful"],
+    isVideo: true,
+    image: "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400",
+    alt: "A playful dog video",
+  },
+  {
+    moodTags: ["excited"],
+    isVideo: true,
+    image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400",
+    alt: "An excited dog video",
+  },
+  {
+    moodTags: ["curious"],
+    isVideo: true,
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400",
+    alt: "A curious dog video",
+  },
+  {
+    moodTags: ["sleepy"],
+    isVideo: true,
+    image: "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400",
+    alt: "A sleepy dog video",
+  },
+  {
+    moodTags: ["calm", "relaxed"],
+    isVideo: true,
+    image: "https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=400",
+    alt: "A calm dog video",
+  },
+];
