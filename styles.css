@@ -63,8 +63,9 @@ h1 {
 }
 
 .radio:hover {
-  background: white;
+  background: #ff19007c;
   transform: translateY(-2px);
+  border-color: #c0392b;
 }
 
 .radio.highlight {
