@@ -1,7 +1,7 @@
 import { moviesData } from "./data.js";
 
 // TODO: Get all DOM elements you need
-const genreRadios = null; // Replace with correct element
+const genreRadios = document.getElementById("genre-radios");
 const getMovieBtn = null; // Replace with correct element
 const classicsOnlyOption = null; // Replace with correct element
 const movieModalInner = null; // Replace with correct element
@@ -49,21 +49,49 @@ function getMatchingMoviesArray() {
   // Return the filtered array
 }
 
-// TODO: Function to get unique genres from movies data
+// Function to get unique genres from movies data
 function getGenresArray(movies) {
   // Create an empty array for genres
+  const genres = [];
   // Loop through all movies
-  // Loop through each movie's genreTags
-  // If genre is not in array, add it
-  // Return the genres array
+  for (const movie of movies) {
+    // Loop through each movie's genreTags
+    for (const genre of movie.genreTags) {
+      // If genre is not in array, add it
+      if (!genres.includes(genre)) {
+        genres.push(genre);
+      }
+    }
+  }
+  return genres;
 }
 
 // TODO: Function to render genre radio buttons
 function renderGenreRadios(movies) {
   // Get unique genres array
+  const genres = getGenresArray(movies);
   // Create HTML string for radio buttons
+  let radioBtns = "";
   // Loop through genres and create radio button HTML
+  for (const genre of genres) {
+    radioBtns += `
+    <div class="radio">
+      <input 
+        type="radio"
+        id="${genre}"
+        value="${genre}"
+        name="genres"
+      />
+      <label 
+      for="${genre}"
+      class="label"
+      >${genre.charAt(0).toUpperCase() + genre.slice(1)}
+      </label>
+    </div>
+    `;
+  }
   // Set genreRadios innerHTML
+  genreRadios.innerHTML = radioBtns;
 }
 
 // TODO: Call renderGenreRadios with moviesData to initialize the page
@@ -102,3 +130,5 @@ function renderGenreRadios(movies) {
         
         BONUS: Make the movie card look amazing with all the movie details!
         */
+
+renderGenreRadios(moviesData);
